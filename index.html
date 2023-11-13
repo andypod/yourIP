@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User IP and Warning</title>
+</head>
+<body>
+    <h1>Yay! We are hackers! This is fetching your IP address from ipify.org!</h1>
+    <p>Your IP address is: <span id="user-ip"></span></p>
+    <p><strong>Warning:</strong> You are being watched!</p>
+
+    <script>
+        // Get user's IP address
+        fetch('https://api.ipify.org?format=json')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('user-ip').textContent = data.ip;
+            })
+            .catch(error => console.log(error));
+    </script>
+</body>
+</html>
